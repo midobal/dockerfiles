@@ -10,10 +10,10 @@ docker build -t modernization ./modern
 Then, you need to copy your models to `modern/models` and the dataset and training codes to `modern/dataset`. After that, the server can be executed by doing:
 
 ```
-docker container run -d -it --rm -v "$pwd"/modern/models/:/opt/nmt-keras/models \
--v "$pwd"/modern/config.py:/opt/nmt-keras/config.py \
--v "$pwd"/modern/dataset/:/opt/nmt-keras/dataset \
--v "$pwd"/modern/config_online.py:/opt/nmt-keras/demo-web/config_online.py \
+docker container run -d -it --rm -v "$(pwd)"/modern/models/:/opt/nmt-keras/models \
+-v "$(pwd)"/modern/config.py:/opt/nmt-keras/config.py \
+-v "$(pwd)"/modern/dataset/:/opt/nmt-keras/dataset \
+-v "$(pwd)"/modern/config_online.py:/opt/nmt-keras/demo-web/config_online.py \
 --gpus all -p 6545:6545 modernization
 ```
 
@@ -28,10 +28,10 @@ docker build -t spelling ./spell
 Then, you need to copy your models to `spell/models` and the dataset and to `spell/dataset`. After that, the server can be executed by doing:
 
 ```
-docker container run -it --rm -v "$pwd"/spell/models/:/opt/nmt-keras/models \
--v "$pwd"/spell/config.py:/opt/nmt-keras/config.py \
--v "$pwd"/spell/dataset/:/opt/nmt-keras/dataset \
--v "$pwd"/spell/config_online.py:/opt/nmt-keras/demo-web/config_online.py \
+docker container run -it --rm -v "$(pwd)"/spell/models/:/opt/nmt-keras/models \
+-v "$(pwd)"/spell/config.py:/opt/nmt-keras/config.py \
+-v "$(pwd)"/spell/dataset/:/opt/nmt-keras/dataset \
+-v "$(pwd)"/spell/config_online.py:/opt/nmt-keras/demo-web/config_online.py \
 --gpus all -p 6546:6546 spelling
 ```
 
