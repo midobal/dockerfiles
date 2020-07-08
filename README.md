@@ -2,7 +2,8 @@
 This repos contains personalized Dockerfiles for different tasks.
 
 ## List of Dockerfiles
-* **[mthd](mthd)**: dockerfiles for running the [machine translation applications to historical documents](http://casmacat.prhlt.upv.es/mthd/) demo server. 
+* **[mthd](mthd)**: dockerfiles for running the [machine translation applications to historical documents](http://casmacat.prhlt.upv.es/mthd/) demo server.
+* **[opennmt-py](opennmt-py)**: dockerfile for running the [OpenNMT-py](https://github.com/OpenNMT/OpenNMT-py) translation toolkit.
 
 ## Docker installation
 You can download and install the bleeding edge version of docker by running the following command:
