@@ -1,4 +1,4 @@
-# OpenNMT-py
+# NMT-Keras
 This repo contains a dockerfile and instructions to run [NMT-Keras](https://github.com/lvapeab/nmt-keras).
 
 ## Build
