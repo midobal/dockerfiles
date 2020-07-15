@@ -19,7 +19,7 @@ docker container run -it --rm --gpus all \
     nmt-keras
 ```
 
-where ```config.py``` is ```nmt-keras/config.py```, modified according to your needs; ```datasets``` is the folder in which to store the datasets, and contains and contains a folder with the training data; and ```trained_models``` is the folder in which to store the neural models.
+where ```config.py``` is ```nmt-keras/config.py```, modified according to your needs; ```datasets``` is the folder in which to store the datasets, and contains a folder with the training data; and ```trained_models``` is the folder in which to store the neural models.
 
 Note: adjust paths accordingly.
 
