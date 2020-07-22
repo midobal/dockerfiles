@@ -16,7 +16,7 @@ WORKDIR /opt/nmt-keras
 RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp/miniconda.sh && \
 bash /tmp/miniconda.sh -b -p /opt/miniconda && export PATH="/opt/miniconda/bin:$PATH" && \
 conda config --set always_yes yes --set changeps1 no && conda update -q conda && conda init && \
-pip install -e .
+pip install -e . && conda install tensorflow-gpu=1.15
 
 ##########################
 ## Default: train model ##
