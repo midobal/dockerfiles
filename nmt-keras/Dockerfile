@@ -17,6 +17,8 @@ RUN wget https://repo.continuum.io/miniconda/Miniconda3-py37_4.8.3-Linux-x86_64.
 bash /tmp/miniconda.sh -b -p /opt/miniconda && export PATH="/opt/miniconda/bin:$PATH" && \
 conda config --set always_yes yes --set changeps1 no && conda update -q conda && conda init && \
 pip install -e . && conda install tensorflow-gpu=1.15
+RUN git clone https://github.com/lvapeab/coco-caption.git
+ENV PYTHONPATH="/opt/nmt-keras/coco-caption:$PYTHONPATH"
 
 ##########################
 ## Default: train model ##
