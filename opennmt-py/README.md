@@ -39,7 +39,7 @@ You can train a model by running the following command:
 
 ```
 docker container run -it --rm --gpus all -v "$(pwd)"/data:/opt/opennmt-py/data opennmt-py \
-onmt_train python train.py -src_word_vec_size 512 -tgt_word_vec_size 512 \
+onmt_train -src_word_vec_size 512 -tgt_word_vec_size 512 \
 -rnn_size 512 -data data/dataset/preprocess -save_model data/models/model_name \
 -gpu_ranks 0 -batch_size 50 -optim adam -learning_rate 0.0002 -learning_rate_decay 1.0 \
 -log_file data/log  -dropout 0 -train_steps 100000 -layers 1 -valid_steps 1000 \
