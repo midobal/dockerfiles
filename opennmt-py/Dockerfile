@@ -11,6 +11,6 @@ RUN export LD_LIBRARY_PATH=/usr/local/cuda/lib64
 ################
 ## OpenNMT-py ##
 ################
-RUN git clone https://github.com/OpenNMT/OpenNMT-py.git /opt/opennmt-py
+RUN git clone --branch legacy https://github.com/OpenNMT/OpenNMT-py.git /opt/opennmt-py
 WORKDIR /opt/opennmt-py
 RUN python3 setup.py install && pip3 install sacrebleu
