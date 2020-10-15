@@ -33,7 +33,7 @@ WORKDIR /opt/nmt-keras
 ############################
 ## NMT-Keras Requirements ##
 ############################
-RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp/miniconda.sh && \
+RUN wget https://repo.continuum.io/miniconda/Miniconda3-py37_4.8.3-Linux-x86_64.sh -O /tmp/miniconda.sh && \
 bash /tmp/miniconda.sh -b -p /opt/miniconda && export PATH="/opt/miniconda/bin:$PATH" && \
 conda config --set always_yes yes --set changeps1 no && conda update -q conda && conda init && \
 conda install --file /opt/nmt-keras/req-travis-conda.txt && \
