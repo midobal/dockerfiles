@@ -12,7 +12,7 @@ docker build -t moses .
 ```
 
 ## Run
-For simplicity, we are going to assume that we have a folder `data` in which to store the models and that it is located in `$(pwd)`. This folder contains the following structure:
+For simplicity, we are going to assume that we have a folder `data` in which to store the models and that it is located in `${PWD}`. This folder contains the following structure:
 
 * dataset/
   * tr.src.
@@ -32,7 +32,7 @@ Note: remember that the dataset must have been tokenized using [tokenize.perl](h
 You can build the language model by running the following command:
 
 ```
-docker container run -it --rm -v /data/repos/dockerfiles/moses/data/:/data moses \
+docker container run -it --rm -v ${PWD}/data/:/data moses \
 /opt/srilm/lm/bin/i686-m64/ngram-count -order 5 -unk -interpolate -kndiscount \
 -text /data/dataset/tr.tgt -lm /data/model.lm
 ```
@@ -43,7 +43,7 @@ Note: adjust parameters according to your needs.
 To train the alignment model, you can run the following command:
 
 ```
-docker container run -it --rm -v /data/repos/dockerfiles/moses/data/:/data moses \
+docker container run -it --rm -v ${PWD}/data/:/data moses \
 /opt/moses/scripts/training/train-model.perl -mgiza -mgiza-cpus 10 --first-step 1 \
 -root-dir /data/alignment -corpus /data/dataset/tr -f src -e tgt \
 -alignment grow-diag-final-and -reordering msd-bidirectional-fe -lm 0:5:/data/model.lm \
@@ -55,7 +55,7 @@ Note: adjust parameters according to your needs.
 You can adjust the weights of the alignment model by means of MERT:
 
 ```
-docker container run -it --rm -v /data/repos/dockerfiles/moses/data/:/data moses \
+docker container run -it --rm -v ${PWD}/data/:/data moses \
 /opt/moses/scripts/training/mert-moses.pl /data/dataset/dev.src \
 /data/dataset/dev.tgt /opt/moses/bin/moses /data/alignment/model/moses.ini \
 -threads=10 --maximum-iterations=10 --working-dir /data/mert --mertdir \
@@ -68,7 +68,7 @@ Note: adjust parameters according to your needs.
 You can translate a model by running the following command:
 
 ```
-docker container run -i --rm -v /data/repos/dockerfiles/moses/data/:/data moses \
+docker container run -i --rm -v ${PWD}/data/:/data moses \
 /opt/moses/bin/moses -threads 10 -f /data/mert/moses.ini < data/dataset/test.src \
 > data/test.hyp
 ```
@@ -77,7 +77,7 @@ Note: adjust file paths and parameters according to your needs.
 To reduce RAM consumption, you can filter the alignment model prior to doing the translation:
 
 ```
-docker container run -it --rm -v /data/repos/dockerfiles/moses/data/:/data moses \
+docker container run -it --rm -v ${PWD}/data/:/data moses \
 /opt/moses/scripts/training/filter-model-given-input.pl /data/filtered_model \
 /data/mert/moses.ini /data/dataset/test.src
 ```
