@@ -3,7 +3,6 @@ FROM nvidia/cuda:10.0-cudnn7-runtime-ubuntu18.04
 ##################
 ## Requirements ##
 ##################
-#SHELL ["/bin/bash", "-c"]
 RUN apt-get update && apt-get install -y git default-jre wget && \
 rm -rf /var/lib/apt/lists/*
 RUN export LD_LIBRARY_PATH=/usr/local/cuda/lib64
