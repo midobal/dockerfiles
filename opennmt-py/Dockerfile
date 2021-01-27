@@ -1,10 +1,10 @@
-FROM nvidia/cuda:10.1-cudnn7-runtime-ubuntu18.04
+FROM nvidia/cuda:11.0.3-cudnn8-runtime-ubuntu20.04
 
 ##################
 ## Requirements ##
 ##################
 SHELL ["/bin/bash", "-c"]
-RUN apt-get update && apt-get install -y git python3 python3-pip && \
+RUN apt-get update && apt-get install -y git python python3-pip && \
 rm -rf /var/lib/apt/lists/*
 RUN export LD_LIBRARY_PATH=/usr/local/cuda/lib64
 
