@@ -65,13 +65,18 @@ docker container run -it --rm -v ${PWD}/data/:/data moses \
 Note: adjust parameters according to your needs.
 
 ### Translation
-You can translate a model by running the following command:
+To translate a model, you need to first run bash inside the container:
 
 ```
-docker container run -i --rm -v ${PWD}/data/:/data moses \
-/opt/moses/bin/moses -threads 10 -f /data/mert/moses.ini < data/dataset/test.src \
-> data/test.hyp
+docker container run -it --rm -v ${PWD}/data/:/data moses /bin/bash
 ```
+
+Then, you just need to run the following command:
+
+```
+bin/moses -threads 10 -f /data/mert/moses.ini < /data/dataset/test.src > /data/test.hyp
+```
+
 Note: adjust file paths and parameters according to your needs.
 
 To reduce RAM consumption, you can filter the alignment model prior to doing the translation:
