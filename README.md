@@ -2,6 +2,7 @@
 This repos contains personalized Dockerfiles for different tasks.
 
 ## List of Dockerfiles
+* **[interactive nmt-keras](inmt-keras)**: dockerfile for running the `InteractiveNMT` branch of the [NMT-Keras](https://github.com/lvapeab/nmt-keras) translation toolkit.
 * **[moses](moses)**: dockerfile for running the [Moses](https://github.com/moses-smt/mosesdecoder) translation toolkit.
 * **[mthd](mthd)**: dockerfiles for running the [machine translation applications to historical documents](http://casmacat.prhlt.upv.es/mthd/) demo server.
 * **[nmt-keras](nmt-keras)**: dockerfile for running the [NMT-Keras](https://github.com/lvapeab/nmt-keras) translation toolkit.
