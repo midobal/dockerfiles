@@ -10,7 +10,7 @@ RUN export LD_LIBRARY_PATH=/usr/local/cuda/lib64
 ###############
 ## NMT-Keras ##
 ###############
-RUN git clone --single-branch --branch  interactive_NMT https://github.com/lvapeab/nmt-keras /opt/nmt-keras
+RUN git clone --single-branch --branch  interactive_NMT https://github.com/PRHLT/nmt-keras /opt/nmt-keras
 WORKDIR /opt/nmt-keras
 RUN wget https://repo.continuum.io/miniconda/Miniconda3-py37_4.8.3-Linux-x86_64.sh -O /tmp/miniconda.sh && \
 bash /tmp/miniconda.sh -b -p /opt/miniconda && export PATH="/opt/miniconda/bin:$PATH" && \
