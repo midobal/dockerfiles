@@ -7,6 +7,7 @@ This repos contains personalized Dockerfiles for different tasks.
 * **[mthd](mthd)**: dockerfiles for running the [machine translation applications to historical documents](http://casmacat.prhlt.upv.es/mthd/) demo server.
 * **[nmt-keras](nmt-keras)**: dockerfile for running the [NMT-Keras](https://github.com/lvapeab/nmt-keras) translation toolkit.
 * **[opennmt-py](opennmt-py)**: dockerfile for running the [OpenNMT-py](https://github.com/OpenNMT/OpenNMT-py) translation toolkit.
+* **[segment-based imt](sb-imt)**: dockerfile for running the [segment-based IMT](https://github.com/midobal/sb-imt) software.
 * **[statistical dictionary](sd)**: dockerfile for translating a document using using an [statistical dictionary](https://github.com/midobal/sd).
 
 ## Docker installation
