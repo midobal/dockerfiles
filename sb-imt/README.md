@@ -1,4 +1,4 @@
-# Segement-based IMT
+# Segement-Based IMT
 This repo contains a dockerfile and instructions to run the [segment-based IMT](https://github.com/midobal/sb-imt) software.
 
 ## Requirements
@@ -39,7 +39,8 @@ docker container run -it --rm  -v ${PWD}/data/:/data \
 -v ${PWD}/source_file:/sbimt/source_file \
 -v ${PWD}/reference_file:/sbimt/reference_file \
 sbimt python3 simulation.py [-h] -s source_file -r reference_file -c /data/moses.ini \
-                     -a /data/alignments_file [-v] [-x] [-p threshold] [-m moses_bin]
+                     -a /data/alignments_file [-v] [-x] [-p threshold] [-m moses_bin] \
+                     -l /data/log_file
 ```
 
 where:
@@ -60,6 +61,8 @@ optional arguments:
                         probability threshold. (Default 0.)
   -m moses_bin, --moses moses_bin
                         Path to moses bin. (Default: /opt/moses/bin/moses.)
+  -l log_file, --log log_file
+                        File to store log.
 ```
 
 ## Citation
