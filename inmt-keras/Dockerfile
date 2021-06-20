@@ -18,6 +18,8 @@ conda config --set always_yes yes --set changeps1 no && conda init && \
 pip install -e . && conda install tensorflow-gpu=1.15
 RUN git clone https://github.com/lvapeab/coco-caption.git
 ENV PYTHONPATH="/opt/nmt-keras/coco-caption:$PYTHONPATH"
+COPY ./inmt.sh /opt/nmt-keras/inmt.sh
+RUN chmod +x /opt/nmt-keras/inmt.sh
 
 ##########################
 ## Default: train model ##
