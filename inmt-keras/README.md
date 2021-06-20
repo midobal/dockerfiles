@@ -16,7 +16,7 @@ docker container run -it --rm --gpus all \
     -v "$(pwd)"/config.py:/opt/nmt-keras/config.py \
     -v "$(pwd)"/datasets:/opt/nmt-keras/datasets \
     -v "$(pwd)"/trained_models:/opt/nmt-keras/trained_models \
-    inmt-keras inmt.sh -d datasets/dataset.pkl -s datasets/corpus/src_file \
+    inmt-keras ./inmt.sh -d datasets/dataset.pkl -s datasets/corpus/src_file \
     -r datasets/corpus/ref_file -m trained_models/model/epoch_n -h datasets/hyps \
     -l datasets/log {-p}
 ```
