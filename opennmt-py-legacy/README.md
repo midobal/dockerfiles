@@ -1,11 +1,11 @@
-# OpenNMT-py
-This repo contains a dockerfile and instructions to run [OpenNMT-py](https://github.com/OpenNMT/OpenNMT-py).
+# OpenNMT-py Legacy
+This repo contains a dockerfile and instructions to run the legacy version of [OpenNMT-py](https://github.com/OpenNMT/OpenNMT-py).
 
 ## Build
 To build the image, you just need to run the following command (provided that you are inside this repo's directory. Otherwise replace `.` with the proper path):
 
 ```
-docker build -t opennmt-py .
+docker build -t opennmt-py-legacy .
 ```
 
 ## Run
@@ -26,10 +26,11 @@ where *src* is the source language and *tgt* is the target language.
 To preprocess the dataset, you just need to run the following command:
 
 ```
-docker container run -it --rm --gpus all -v "$(pwd)"/data:/opt/opennmt-py/data opennmt-py \
-onmt_preprocess -train_src data/dataset/tr.src -train_tgt data/dataset/tr.tgt \
--valid_src data/dataset/dev.src -valid_tgt data/dataset/dev.tgt \
--save_data data/dataset/preprocess -src_seq_length 70 -tgt_seq_length 70
+docker container run -it --rm --gpus all -v "$(pwd)"/data:/opt/opennmt-py/data \
+opennmt-py-legacy onmt_preprocess -train_src data/dataset/tr.src \
+-train_tgt data/dataset/tr.tgt -valid_src data/dataset/dev.src \
+-valid_tgt data/dataset/dev.tgt -save_data data/dataset/preprocess \
+-src_seq_length 70 -tgt_seq_length 70
 ```
 
 Note: adjust parameters according to your needs.
@@ -38,8 +39,8 @@ Note: adjust parameters according to your needs.
 You can train a model by running the following command:
 
 ```
-docker container run -it --rm --gpus all -v "$(pwd)"/data:/opt/opennmt-py/data opennmt-py \
-onmt_train -src_word_vec_size 512 -tgt_word_vec_size 512 \
+docker container run -it --rm --gpus all -v "$(pwd)"/data:/opt/opennmt-py/data \
+opennmt-py-legacy onmt_train -src_word_vec_size 512 -tgt_word_vec_size 512 \
 -rnn_size 512 -data data/dataset/preprocess -save_model data/models/model_name \
 -gpu_ranks 0 -batch_size 50 -optim adam -learning_rate 0.0002 -learning_rate_decay 1.0 \
 -log_file data/log  -dropout 0 -train_steps 100000 -layers 1 -valid_steps 1000 \
@@ -51,8 +52,8 @@ Note: adjust parameters according to your needs.
 To translate a document, you just need to run the following command:
 
 ```
-docker container run -it --rm --gpus all -v "$(pwd)"/data:/opt/opennmt-py/data opennmt-py \
-onmt_translate -model data/models/_model_name_step_step-number.pt \
+docker container run -it --rm --gpus all -v "$(pwd)"/data:/opt/opennmt-py/data \
+opennmt-py-legacy onmt_translate -model data/models/_model_name_step_step-number.pt \
 -src data/dataset/test.src -tgt data/dataset/test.tgt -output data/dataset/test.hyp \
 -replace_unk -gpu 0
 ```
