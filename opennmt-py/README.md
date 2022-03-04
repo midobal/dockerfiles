@@ -8,6 +8,8 @@ To build the image, you just need to run the following command (provided that yo
 docker build -t opennmt-py .
 ```
 
+Note: This image uses Cuda 11. If you need to use Cuda 10, build the image using [this Dockerfile](cuda10/Dockerfile) instead.
+
 ## Run
 For simplicity, we are going to assume that we have a folder `data` in which to store both the dataset and the models and that it is located in `$(pwd)`. This folder contains the following structure:
 
