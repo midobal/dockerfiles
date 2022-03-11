@@ -52,8 +52,8 @@ To translate a document, you just need to run the following command:
 ```
 docker container run -it --rm --gpus all -v "$(pwd)"/data:/opt/opennmt-py/data \
 -v "$(pwd)"/config.yaml:/opt/opennmt-py/config.yaml opennmt-py onmt_translate \
--model data/model/model_step_$n.pt -src data/dataset/test.src -output data/test.hyp \
--gpu 0 -verbose
+-model data/models/model_step_$n.pt -src data/dataset/test.src -output data/test.hyp \
+-gpu 0 -verbose -replace_unk
 ```
 
 where `model_step_$n.pt` is the desired model to use.
