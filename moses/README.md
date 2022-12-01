@@ -68,9 +68,9 @@ Note: adjust parameters according to your needs.
 You can translate a document by doing:
 
 ```
-docker container run -it --rm -v ${PWD}/data/:/data moses \
+docker container run -i --rm -v ${PWD}/data/:/data moses \
 bin/moses -threads 10 -f /data/mert/moses.ini \
--i /data/dataset/test.src > /data/test.hyp
+-i /data/dataset/test.src > data/test.hyp
 ```
 
 Note: adjust file paths and parameters according to your needs.
@@ -84,3 +84,11 @@ docker container run -i --rm -v ${PWD}/data/:/data moses \
 ```
 
 Then, to translate the document, you just need to replace `/data/mert/moses.ini` by `/data/filtered_model/moses.ini` in the command stated before.
+
+### Evaluation
+You can evaluate a translation hypothesis by doing:
+
+```
+docker container run -i --rm -v ${PWD}/data/:/data moses \
+/opt/moses/scripts/generic/multi-bleu.perl /data/test/test.en < data/test.hyp
+```
