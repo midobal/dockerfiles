@@ -90,5 +90,5 @@ You can evaluate a translation hypothesis by doing:
 
 ```
 docker container run -i --rm -v ${PWD}/data/:/data moses \
-/opt/moses/scripts/generic/multi-bleu.perl /data/test/test.en < data/test.hyp
+/opt/moses/scripts/generic/multi-bleu.perl /data/dataset/test.tgt < data/test.hyp
 ```
