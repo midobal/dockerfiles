@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.5.0-cudnn8-runtime-ubuntu20.04
+FROM nvidia/cuda:12.3.2-runtime-ubuntu22.04
 
 ##################
 ## Requirements ##
